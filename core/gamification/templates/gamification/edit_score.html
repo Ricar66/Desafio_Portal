@@ -1,0 +1,18 @@
+{% extends 'gamification/base.html' %}
+
+{% block title %}Editar Pontuação{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">Editar Pontuação</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="points" class="form-label">Nova Pontuação</label>
+            <input type="number" name="points" id="points" class="form-control" value="{{ score.points }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a href="{% url 'ranking' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

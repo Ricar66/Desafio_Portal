@@ -1,0 +1,27 @@
+{% extends 'gamification/base.html' %}
+
+{% block title %}Atribuir Desafios{% endblock %}
+
+{% block content %}
+    <h2>Atribuir Desafios</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="cpf">CPF do Corretor:</label>
+            <input type="text" name="cpf" id="cpf" required>
+        </div>
+        <div>
+            <label for="challenge">Selecione o Desafio:</label>
+            <select name="challenge" id="challenge">
+                {% for challenge in challenges %}
+                    <option value="{{ challenge.id }}">{{ challenge.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Atribuir</button>
+        </div>
+    </form>
+    <button class="btn btn-secondary" onclick="window.history.back();">Voltar</button>
+{% endblock %}
+

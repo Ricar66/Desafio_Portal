@@ -1,0 +1,12 @@
+{% extends 'gamification/base.html' %}
+
+{% block content %}
+    <h2>Cadastrar Desafio</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+    </form>
+    <button class="btn btn-secondary" onclick="window.history.back();">Voltar</button>
+{% endblock %}
+

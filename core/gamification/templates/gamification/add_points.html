@@ -1,0 +1,17 @@
+{% extends 'gamification/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Adicionar Pontos</h2>
+    <p>Usuário: {{ score.user.username }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="points">Pontos:</label>
+            <input type="number" name="points" id="points" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-success mt-3">Adicionar</button>
+        <a href="{% url 'ranking_geral' %}" class="btn btn-secondary mt-3">Voltar</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'gamification/base.html' %}
+
+{% block content %}
+    <h2>Painel do Administrador</h2>
+    <ul>
+        <li><a href="/criar-desafio/">Cadastrar Desafios</a></li>
+        <li><a href="/manage-users/">Gerenciar Usuários</a></li>
+        <li><a href="/assign-challenge/">Atribuir Desafios</a></li>
+    </ul>
+    {% for challenge in challenges %}
+    <li>
+        {{ challenge.title }}
+        <a href="{% url 'challenge_ranking' challenge.id %}" class="btn btn-info">Ver Ranking</a>
+    </li>
+    {% endfor %}
+{% endblock %}

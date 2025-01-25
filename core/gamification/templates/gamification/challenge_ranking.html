@@ -1,0 +1,51 @@
+{% extends 'gamification/base.html' %}
+
+{% block title %}Ranking Geral{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">Ranking Geral</h2>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>Posição</th>
+                <th>Usuário</th>
+                <th>Desafio</th>
+                <th>Pontos</th>
+                {% if can_edit %}
+                <th>Ações</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for position, ranking in rankings.items %}
+            <tr>
+                <td>
+                    {% if forloop.counter == 1 %} 🥇
+                    {% elif forloop.counter == 2 %} 🥈
+                    {% elif forloop.counter == 3 %} 🥉
+                    {% else %}
+                        {{ forloop.counter }}
+                    {% endif %}
+                </td>
+                <td>{{ ranking.user__username }}</td>
+                <td>{{ ranking.challenge__title }}</td>
+                <td>{{ ranking.total_points }}</td>
+                {% if can_edit %}
+                <td>
+                    <a href="{% url 'edit_score' ranking.id %}" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="{% url 'delete_score' ranking.id %}" class="btn btn-sm btn-danger">Excluir</a>
+                </td>
+                {% endif %}
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="text-center">Nenhuma pontuação encontrada.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'dashboard' %}" class="btn btn-secondary">Voltar</a>
+</div>
+{% endblock %}
+

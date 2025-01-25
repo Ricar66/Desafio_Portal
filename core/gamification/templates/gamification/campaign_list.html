@@ -1,0 +1,19 @@
+{% extends 'gamification/base.html' %}
+
+{% block title %}Campanhas{% endblock %}
+
+{% block content %}
+    <h2>Campanhas Ativas</h2>
+    <ul>
+        {% for campaign in campaigns %}
+            <li>
+                <a href="{% url 'campaign_detail' campaign.pk %}">{{ campaign.name }}</a>
+                <p>{{ campaign.description }}</p>
+                <p><strong>Início:</strong> {{ campaign.start_date }} | <strong>Fim:</strong> {{ campaign.end_date }}</p>
+            </li>
+        {% empty %}
+            <li>Nenhuma campanha ativa no momento.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'dashboard' %}" class="btn btn-secondary mt-3">Voltar</a>
+{% endblock %}

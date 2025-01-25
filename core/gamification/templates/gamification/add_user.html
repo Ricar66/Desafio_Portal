@@ -1,0 +1,34 @@
+{% extends 'gamification/base.html' %}
+
+{% block title %}Gerenciar Usuários{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">Gerenciar Usuários</h2>
+    <a href="{% url 'add_user' %}" class="btn btn-primary mb-3">Adicionar Usuário</a>
+    <table class="ranking-table mt-3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome de Usuário</th>
+                <th>Papel</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.role }}</td>
+                <td>
+                    <a href="{% url 'edit_user' user.id %}" class="btn btn-warning btn-sm">Editar</a>
+                    <a href="{% url 'delete_user' user.id %}" class="btn btn-danger btn-sm">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<button class="btn btn-secondary" onclick="window.history.back();">Voltar</button>
+{% endblock %}

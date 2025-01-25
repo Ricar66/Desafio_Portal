@@ -1,0 +1,29 @@
+{% extends 'gamification/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center">Bem-vindo ao Portal de Gamificação</h2>
+    <form method="post" class="mt-4">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="username" class="form-label">Usuário</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Usuário" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Senha</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Senha" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Entrar</button>
+    </form>
+
+    <!-- Adiciona um link para registro -->
+    <p class="mt-3 text-center">
+        Não tem uma conta? <a href="{% url 'register' %}">Cadastre-se aqui</a>.
+    </p>
+
+    <!-- Botão para retornar à seleção de papéis -->
+    <div class="mt-4 text-center">
+        <a href="{% url 'select_role' %}" class="btn btn-secondary">Voltar</a>
+    </div>
+</div>
+{% endblock %}

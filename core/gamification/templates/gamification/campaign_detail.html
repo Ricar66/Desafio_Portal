@@ -1,0 +1,16 @@
+{% extends 'gamification/base.html' %}
+
+{% block title %}Detalhes da Campanha{% endblock %}
+
+{% block content %}
+    <h2>{{ campaign.name }}</h2>
+    <p>{{ campaign.description }}</p>
+    <h3>Desafios</h3>
+    <ul>
+        {% for challenge in challenges %}
+            <li>{{ challenge.title }} - {{ challenge.points }} pontos</li>
+        {% endfor %}
+        
+    </ul>
+    <a href="{% url 'broker_dashboard' %}" class="btn btn-secondary">Voltar</a>
+{% endblock %}

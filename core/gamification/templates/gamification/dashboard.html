@@ -1,0 +1,20 @@
+{% extends 'gamification/base.html' %}
+
+{% block content %}
+<h2>Bem-vindo, {{ user.username }}</h2>
+<p>Você está logado como {{ role }}.</p>
+
+{% if buttons %}
+    {% for button in buttons %}
+        {% if button.param %}
+            <a href="{% url button.url button.param %}" class="btn btn-primary">{{ button.name }}</a>
+        {% else %}
+            <a href="{% url button.url %}" class="btn btn-primary">{{ button.name }}</a>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <p>Nenhuma ação disponível.</p>
+{% endif %}
+
+
+{% endblock %}

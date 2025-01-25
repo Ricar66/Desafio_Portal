@@ -1,0 +1,14 @@
+{% extends 'gamification/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Confirmar Exclusão</h2>
+    <p>Tem certeza de que deseja remover o corretor <strong>{{ user.username }}</strong> do ranking?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmar</button>
+        <a href="{% url 'ranking_geral' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}
+

@@ -1,0 +1,21 @@
+{% extends 'gamification/base.html' %}
+
+{% block content %}
+<h2>{{ challenge.title }}</h2>
+
+<!-- Verifica se o banner está disponível antes de tentar renderizá-lo -->
+{% if challenge.banner %}
+    <img src="{{ challenge.banner.url }}" alt="Banner do Desafio" style="max-width: 100%;">
+{% else %}
+    <p>Este desafio não possui um banner.</p>
+{% endif %}
+
+<!-- Descrição do desafio -->
+<p>{{ challenge.description }}</p>
+<p>Regras: {{ challenge.evaluation_rules }}</p>
+<p>Pontos: {{ challenge.points }}</p>
+
+<!-- Botões de ação -->
+<a href="{% url 'broker_dashboard' %}" class="btn btn-secondary">Voltar</a>
+<a href="{% url 'accept_challenge' challenge.id %}" class="btn btn-success">Aceitar Desafio</a>
+{% endblock %}

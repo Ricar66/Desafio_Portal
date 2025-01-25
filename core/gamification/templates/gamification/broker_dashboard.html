@@ -1,0 +1,25 @@
+{% extends 'gamification/base.html' %}
+
+{% block content %}
+<h2>Desafios Atribuídos</h2>
+
+<ul>
+    {% for challenge in challenges %}
+        <li>
+            <h3>{{ challenge.title }}</h3>
+            <p>{{ challenge.description }}</p>
+            <p>Pontos: {{ challenge.points }}</p>
+            <a href="{% url 'challenge_detail' challenge.id %}" class="btn btn-primary">Ver Detalhes</a>
+            <a href="{% url 'accept_challenge' challenge.id %}" class="btn btn-success">Aceitar Desafio</a>
+        </li>
+    {% empty %}
+        <p>Não há desafios atribuídos a você no momento.</p>
+    {% endfor %}
+</ul>
+
+<div class="mt-4">
+    <a href="{% url 'ranking' %}" class="btn btn-info">Visualizar Ranking Geral</a>
+</div>
+
+<a href="{% url 'dashboard' %}" class="btn btn-secondary mt-3">Voltar</a>
+{% endblock %}

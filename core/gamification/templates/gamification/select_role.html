@@ -1,0 +1,22 @@
+{% extends 'gamification/base.html' %}
+
+{% block content %}
+<div class="container" style="text-align: center; margin-top: 2rem;">
+    <h2>Selecione seu Papel</h2>
+    <form method="post" style="margin-top: 1rem;">
+        {% csrf_token %}
+        <div style="margin-bottom: 1rem;">
+            <label style="display: block; margin-bottom: 0.5rem;">
+                <input type="radio" name="role" value="admin" required>
+                Administrador
+            </label>
+            <label style="display: block; margin-bottom: 0.5rem;">
+                <input type="radio" name="role" value="broker" required>
+                Corretor
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Continuar</button>
+    </form>
+</div>
+{% endblock %}
+
