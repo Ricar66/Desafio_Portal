@@ -1,0 +1,134 @@
+/* Estilo geral */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa; /* Tom neutro e elegante */
+    color: #212529; /* Texto em tom escuro */
+}
+
+/* Container principal */
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    max-width: 800px;
+    margin: auto; /* Centraliza horizontalmente */
+    background: #ffffff; /* Fundo branco puro */
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Efeito de elevação */
+    color: #000000;
+    
+}
+
+/* Estilo para títulos */
+h1, h2 {
+    color: #007bff; /* Azul Bootstrap */
+    font-weight: bold;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    margin: 10px; /* Espaçamento entre os botões */
+    border-radius: 50px; /* Estilo mais arredondado */
+    transition: all 0.3s ease; /* Animação para hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* Leve elevação ao passar o mouse */
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Navegação */
+nav {
+    background-color: #343a40;
+    padding: 0.8rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+}
+
+.nav-link{
+    color: #000000;
+    font-weight: 700;
+    background-color: #007bff;
+   
+   
+}
+
+nav a {
+    color: #212529; /* Alterado para preto */
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 1rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #ffc107; /* Destaque amarelo ao passar o mouse */
+}
+
+/* Tabelas */
+.ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.ranking-table th, .ranking-table td {
+    padding: 12px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.ranking-table th {
+    background-color: #007bff;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.ranking-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.ranking-table tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Rodapé */
+footer {
+    background-color: #212529;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+    font-size: 0.9rem;
+}
